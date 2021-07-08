@@ -65,7 +65,7 @@ const NameOfTheService = () => {
             addoutfit={addToOutfits}
             pics={productPics}
           />
-          <YourOutfitList relatedData={relatedProducts} outfitsData={outfits} />
+        { outfits.length ? <YourOutfitList relatedData={relatedProducts} outfitsData={outfits} /> : ''}
         </>
       );
     } else {

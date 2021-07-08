@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Carousel from 'nuka-carousel';
+
 
 import Comparison from "./Comparison.jsx";
 
@@ -22,9 +24,10 @@ export default function YourOutfitList(props) {
   return (
     <>
     <h1 className="flex px-48 font-mono pt-11 pr-2 "> YOUR OUTFIT</h1>
-    <div className="relative py-3 sm:max-w-full pl-60 pr-40 pt-11">
-      <div className="flex flex-col bg-white m-auto p-auto pt-11">
-        <div className="flex overflow-x-scroll pb-10 overflow-hidden  ">
+    <div className="relative py-3 sm:max-w-full px-48 pt-11">
+      <div className="flex flex-col bg-white m-auto p-auto">
+        <div className="flex ">
+          <Carousel slidesToShow={3.5} withoutControls={true} >
           {props.outfitsData.map((e) => (
             <div
               className="inline-block px-3  "
@@ -50,7 +53,7 @@ export default function YourOutfitList(props) {
                         </a>
                       </div>
                       <div className="mt-2 text-sm text-gray-600">
-                        {e.data.default_price}
+                        ${e.data.default_price}
                       </div>
                     </div>
                   </div>
@@ -58,6 +61,7 @@ export default function YourOutfitList(props) {
               </div>
             </div>
           ))}
+          </Carousel>
         </div>
       </div>
 
