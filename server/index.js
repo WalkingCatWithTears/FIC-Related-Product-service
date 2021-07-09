@@ -17,12 +17,14 @@ app.use(express.json());
 
 
 app.get('/api/products/:product_id/styles', (req, res) => {
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${req.params.product_id}/styles`, {
+  console.log(re.params);
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/11001/styles`, {
     headers : {
       Authorization : process.env.GITHUB_TOKEN
-    },
+    }
 
   }).then((response) => {
+    console.log(response);
     res.send(response.data)
   }).catch((err) => {
     console.log(err)
@@ -43,7 +45,7 @@ app.get(`/api/products/:product_id`, (req, res) => {
   })
   .then((response) => {
     res.send(response.data)
-    console.log(response.data,"this data we got it after sending req with ids of products")
+    // console.log(response.data,"this data we got it after sending req with ids of products")
   })
   .catch((error) => {
     console.error(error)
@@ -69,7 +71,7 @@ app.get(`/api/products/:product_id/related`, (req, res) => {
   })
   .then((response) => {
     res.send(response.data)
-    console.log(response.data,"array of related data ids")
+    // console.log(response.data,"array of related data ids")
   })
   .catch((error) => {
     console.error(error)

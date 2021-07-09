@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from 'nuka-carousel';
+import CloseIcon from "@material-ui/icons/Close";
+
 
 
 import Comparison from "./Comparison.jsx";
@@ -37,6 +39,11 @@ export default function YourOutfitList(props) {
               {console.log(e.data, props.outfitsData,"hellllllooo")}
               <div className=" w-56 h-72 max-w-xs overflow-hidden  shadow-md bg-white  transition-shadow duration-300 ease-in-out border-2 hover:bg-white hover:shadow-lg hover:border-transparent">
                 <div>
+                <div className=" top-0 right-0">
+                    <CloseIcon
+                      onClick={() =>props.removeOutfit(e) }
+                    />
+                  </div>
                   <img
                     className="rounded"
                     src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"

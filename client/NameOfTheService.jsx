@@ -54,6 +54,9 @@ const NameOfTheService = () => {
       console.log("you cant add to outfits twice  ");
     }
   };
+  const deleteFromOutfits = (data) => {
+    setoutfits(outfits.filter((e) => e !== data));
+  };
 
   const checkdata = () => {
     if (data[0] !== undefined) {
@@ -65,7 +68,7 @@ const NameOfTheService = () => {
             addoutfit={addToOutfits}
             pics={productPics}
           />
-        { outfits.length ? <YourOutfitList relatedData={relatedProducts} outfitsData={outfits} /> : ''}
+        { outfits.length ? <YourOutfitList relatedData={relatedProducts} outfitsData={outfits} removeOutfit={deleteFromOutfits} /> : ''}
         </>
       );
     } else {
